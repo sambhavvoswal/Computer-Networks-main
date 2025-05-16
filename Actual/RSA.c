@@ -27,15 +27,8 @@ int mod_of_d(int e, int z) {
 // Modular exponentiation: (base^exp) % mod
 int modPower(int base, int exp, int mod) {
     int result = 1;
-    base = base % mod; // Bring base within mod range
-
-    while (exp > 0) {
-        // If exponent is odd, multiply the result
-        if (exp % 2 == 1) 
-            result = (result * base) % mod;
-
-        exp = exp / 2;               // Reduce exponent by half
-        base = (base * base) % mod;  // Square the base
+    for(int i = 0; i < exp; i++) {
+        result = (result * base) % mod;
     }
     return result;
 }
