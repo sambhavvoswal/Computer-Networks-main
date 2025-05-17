@@ -27,7 +27,8 @@ int main()
         if (a[i] > bs) {
             printf("Packet %d dropped (exceeds bucket size).\n", i + 1);
         } else {
-            if (bc + a[i] < bs) {
+            if (bc + a[i] <= bs)
+            {
                 bc += a[i];
                 printf("Packet %d added to the bucket. Current bucket content: %d\n", i + 1, bc);
             } else {
